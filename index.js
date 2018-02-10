@@ -1,9 +1,9 @@
-// const promptUser = require('inquirer');
+const inquirer = require('inquirer');
 
 
 //something with argv and how to store what letter they pressed?
-const letter = require("./letter");
-const word = require("./word");
+// const letter = require("./letter");
+// const word = require("./word");
 
  console.log("Guess a letter!");
 //array of words that I have  scott pilgrim themed 
@@ -20,6 +20,16 @@ randomWord();
         console.log(randomWord.split(""));
 
     }
+
+//start inquirer 
+inquirer.prompt([
+    {
+        name: "name",
+        message: "Guess a letter!"
+    }
+]).then(function(answers) {
+   
+});
 
 
 
