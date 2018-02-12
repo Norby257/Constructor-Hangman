@@ -1,23 +1,23 @@
-var Letter = function(character) {
-    //string val to store underlying char / on key up?
-    //boolean
-    //display char to user
-    this.displayChar = function() {
+var Letter = function(character, guessed) {
+    this.character = character;
+    this.guessed = guessed; 
+    //start checking if letter was guessed
+    this.toString = function() {
         if (character) {
             console.log(character);
         } else {
             console.log("_");
         }
     };
-
     this.checkChar  = function() {
-        if (character = computerCharacter) {
-            character.guessed = true;
+        if (this.char === this.guessed) {
+            this.guessed = true;
+        }
+        else {
+            this.guessed = false;
         }
     }
 
 
 }
-
-
 module.exports = Letter;
