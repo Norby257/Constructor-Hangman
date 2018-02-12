@@ -1,13 +1,13 @@
 const letter = require('./letter.js');
 
 // here's the constructor 
-var Word = function() {
-    //array of new letter objects 
-    var letterArray = [];
-  
+var Word = function(word) {
+    // make array of new letter objects 
+    let arrayFromWord = word.split("");
+
  //first function from letter called on each letter object
-    //we'd use  a for each loop here 
-    letterArray.forEach(function(element) {
+    letterArray.forEach(function(character) {
+        toString(character);
        
 
     });
@@ -17,3 +17,5 @@ var Word = function() {
 
     });
 }
+
+module.exports = Word;
