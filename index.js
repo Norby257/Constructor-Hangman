@@ -1,14 +1,13 @@
+//Constants 
 const inquirer = require('inquirer');
-const letters = require('./letter');
-const word = require('./word');
-// var userGuess = process.argv[2];
+const Word = require('./word');
 
-//something with argv and how to store what letter they pressed?
-// const letter = require("./letter");
-// const word = require("./word");
-
-//array of words that I have  scott pilgrim themed 
-//accidentally put Word.js logic here  so putting 
+//score and guesses  - global variables 
+letterArray = [];
+arrayDashes = [];
+totalGuesses = 0;
+guessesLeft = 0;
+wins = 0;
 
 startGame();
 
@@ -16,35 +15,56 @@ startGame();
     function startGame(wordBank) {
     
         //array of words
+
         var wordBank = ["Clash at Demonhead", "Bomb-ob", "Ramona", "Scott", "Guitar", "Vegan Police", "Envy Adams", "Todd", "Young Neil"];   
         //get a random word     
-        let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-        //split that word into an array 
-        let splitWord = randomWord.split("");
-        // console.log(splitWord.length);
-        //keeping track of guesses 
+        let word = wordBank[Math.floor(Math.random() * wordBank.length)];
+        console.log(word);
 
+        //store word into a new word (using the word constructor)
+        //pseudocode
 
-    // function displaySpaces
-        
-        let numGuess = 0;
-        if (numGuess < splitWord.length) {
-            numGuess++;
-            console.log(numGuess);
-            console.log(`You have ${numGuess} left!`);
-        }
+        word = new Word("word");       
     }
+        // start inquirier  
+inquirer.prompt([
+    {
+        name: "name",
+        message: "Guess a letter!"
+    }
+]).then(function(answers) {
+    userGuesses();
 
-//start inquirer 
-// inquirer.prompt([
-//     {
-//         name: "name",
-//         message: "Guess a letter!"
-//     }
-// ]).then(function(answers) {
-// });
-//if a word is guessed correctly, call randomword again 
+    checkuserInput();
+    //here is where we'd call the methods from word.js 
+    
+});
+
+/*
+if a word is guessed correctly, call randomword again 
 
 
 
-    //call to string/display letter 
+*/ 
+
+
+//functions 
+function userGuesses() {
+    this.totalGuesses = this.word.length + 3;
+    this.guessesLeft = this.totalGuesses;
+    
+}
+//compare user input to word in array 
+function checkuserInput(userInput) {
+    if (userInput === this.word) {
+        userScore++;
+        console.log("Woo! Here's another one!");
+        userGuesses = 0;
+        totalguesses = 0;
+        
+    } else {
+        userGuesses++;
+        totalGuesses--;
+    }
+}
+
